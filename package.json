@@ -1,5 +1,5 @@
 {
-  "name": "griddy",
+  "name": "codenames",
   "version": "1.0.0",
   "description": "griddy!",
   "main": "script.js",
@@ -8,8 +8,8 @@
     "start": "browser-sync start --server . --files ."
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Shannon Zylstra",
+  "license": "MIT",
   "dependencies": {
     "browser-sync": "^2.26.7"
   },
