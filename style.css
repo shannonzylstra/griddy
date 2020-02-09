@@ -32,6 +32,7 @@ body {
     font-family: SkyFall Done;
     text-align: center;
     color: white;
+    font-size: 8vw;
 }
 
 /* Main (Game) Style Spacing */
@@ -90,6 +91,8 @@ h3 #team2Score {
 button {
     max-height: 100%;
     min-width: auto;
+    /*! font-size: 8vw; */
+    height: 5vw;
 }
 .modeWrapper {
     display: grid;
@@ -192,7 +195,8 @@ div#board.wrapper {
     align-items: center;
     min-height: 50px;
     flex-flow: row wrap;
-    font-size: 3vw;
+    font-size: 2vw;
+    overflow-wrap: break-word;
 }
 
 .one {
