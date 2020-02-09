@@ -1,85 +1,158 @@
-* {
-    box-sizing: border-box;
-}
-
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-    font-family: 'Roboto', sans-serif;
-}
-
+/* Fonts */
+/* @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap'); */
 @font-face {
     font-family: 'SkyFall Done';
     src: url('./font/skyfall_done.ttf');
 }
 
-header {
-    margin: 0 auto;
-    height: 30px;
+/* Reset Font/Box-Sizing */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
-h1 {
+* {
+    box-sizing: border-box;
+}
+
+/* Style Background */
+body {
+    background-color: black;
+    margin: 0 auto;
+    width: 90%;
+    padding: 1em;
+    height: 90%;
+}
+
+/* Style Header */
+.codenames-header,
+.codenames-header h1 {
+     /* `<h1>` CODENAMES Style Font */
     font-family: SkyFall Done;
     text-align: center;
+    color: white;
 }
 
+/* Main (Game) Style Spacing */
 main {
+    margin: ;
     display: grid;
+    /* unsure if these next 3 do anything */
     direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: space-around;
+    justify-content: space-around;
 }
+
+
+
+
+
+
+/* controlsWrapper is a grid */
+.controlsWrapper,
+.modeWrapper {
+    display: grid;
+    direction: row;
+    /* border: 2px solid  orange; */
+    padding: .25em;
+}
+
+/* Grid: Score Left, Restart Right */
 .controls {
     display: grid;
-    grid-template-areas: "mode restart"
+    grid-template-areas: "score restart";
+    align-items: space-between;
 }
-
-.controls>div.mode {
-    grid-area: "mode";
+.scoreWrapper {
+    grid-area: "score";
 }
-
-.controls>div.restart {
-    text-align: right;
+.restartWrapper {
     grid-area: "restart";
+}
+
+/* Style Heights: `div.scoreWrapper` == `div.restart` */
+div.scoreElement, 
+div.restartWrapper {
+    display: grid;
+    direction: column;
+    /* border: 2px solid green; */
+    align-items: center;
+}
+h3 #team1Score, 
+h3 #team2Score {
+    max-height: 5px;
+    min-width: 20px;
+}
+.restartWrapper {
+    justify-content: right;
+}
+button {
+    max-height: 100%;
+    min-width: auto;
+}
+.modeWrapper {
+    display: grid;
+    direction: row;
+    grid-template-areas: "player spymaster";
+    align-items: space-between;
+    justify-content: center;
+}
+.mode #player {
+    grid-area: "player";
+}
+.mode #spymaster {
+    grid-area: "spymaster";
+}
+.mode {
+    justify-content: center;
+    align-items: center;
+}
+
+div#board.wrapper {
+    display: grid;
+    grid-auto-rows: minmax(3em, auto);
+    max-width: 100%;
+    margin: .25em auto;
+    /* TODO: fix min-width for small screens */
+    /* TODO: fix max-width? */
 }
 
 .wrapper,
 .wrapper>div,
 .cardWordWrapper {
     display: grid;
-    grid-auto-rows: minmax(3em, auto);
+    /*! grid-auto-rows: minmax(3em, auto); */
     max-width: minmax(50px, auto);
     margin: .25em auto;
 }
-
 .wrapper>div>.card {
     color: #d9480f;
     font-weight: 600;
     font-family: SkyFall Done;
-    vertical-align: center;
+    justify-content: center;
+    display: flex;
 }
-
 .wrapper>div {
     grid-template-columns: repeat(5, 1fr);
     grid-gap: .5em;
-    background-color: white;
-    /* padding: .25em .5em; */
-    min-width: 0;
-    grid-template-columns: repeat(5, minmax(0, 300px));
+    background-color: none;
+    min-width: 300px;
+    grid-template-columns: repeat(5, minmax(0,100px));
+    /* TODO: fix grid-template-columns max width & min width to be mobile first & responsive */
 }
-
 .wrapper>div>div {
     border: 2px solid rgb(233, 171, 88);
     border-radius: 5px;
     background-color: white;
     background-color: rgba(233, 171, 88, 0.5);
     background-size: cover;
-    padding: 1em;
+    padding: ;
 }
 
 .clicked.red, .spy.red {
-    transform: rotateY(180deg);
-    background-image: url(./img/codenames-red_agent-man.jpg);
+    /*! transform: rotateY(180deg); */
+    /*! background-image: url(./img/codenames-red_agent-man.jpg); */
     background-size: 100% 100%;
 }
 
@@ -105,13 +178,18 @@ main {
 .cardWordWrapper {
     display: flex;
     flex-flow: row wrap;
-    max-width: 100%;
+    min-width: 50px;
+    /*! min-height: 50px; */
     overflow-wrap: break-word;
 }
 
 .cardWord {
-    flex: 1 100%;
+    flex: 1 auto;
     max-width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    min-height: 50px;
 }
 
 .one {
