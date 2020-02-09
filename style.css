@@ -2,51 +2,116 @@
     box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    font-family: 'Roboto', sans-serif;
+}
+
+@font-face {
+    font-family: 'SkyFall Done';
+    src: url('./font/skyfall_done.ttf');
+}
+
+header {
+    margin: 0 auto;
+    height: 30px;
+}
+
+h1 {
+    font-family: SkyFall Done;
+    text-align: center;
+}
+
+main {
+    display: grid;
+    direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.controls {
+    display: grid;
+    grid-template-areas: "mode restart"
+}
+
+.controls>div.mode {
+    grid-area: "mode";
+}
+
+.controls>div.restart {
+    text-align: right;
+    grid-area: "restart";
+}
+
 .wrapper,
 .wrapper>div,
 .cardWordWrapper {
     display: grid;
-    grid-auto-rows: minmax(100px, auto);
-    max-width: 940px;
-    margin: 0 auto;
+    grid-auto-rows: minmax(3em, auto);
+    max-width: minmax(50px, auto);
+    margin: .25em auto;
 }
 
-.wrapper>div,
-.wrapper>div>div {
+.wrapper>div>.card {
     color: #d9480f;
+    font-weight: 600;
+    font-family: SkyFall Done;
+    vertical-align: center;
 }
 
 .wrapper>div {
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-    /*border: 2px solid whitesmoke;*/
+    grid-gap: .5em;
     background-color: white;
-    padding: .25em;
-    /* fix: minimum width of 0 */
+    /* padding: .25em .5em; */
+    min-width: 0;
     grid-template-columns: repeat(5, minmax(0, 300px));
 }
 
 .wrapper>div>div {
     border: 2px solid rgb(233, 171, 88);
     border-radius: 5px;
-    background-color: rgba(233, 171, 88, .5);
-    /* default card background color */
+    background-color: white;
+    background-color: rgba(233, 171, 88, 0.5);
+    background-size: cover;
     padding: 1em;
 }
 
+.clicked.red, .spy.red {
+    transform: rotateY(180deg);
+    background-image: url(./img/codenames-red_agent-man.jpg);
+    background-size: 100% 100%;
+}
+
+.clicked.blue, .spy.blue {
+    transform: rotateY(180deg);
+    background-image: url(./img/codenames-blue_agent-woman.png);
+    background-size: 100% 100%;
+}
+
+.clicked.assassin, .spy.assassin {
+    transform: rotateY(180deg);
+    background: black;
+    background-image: url(./img/codenames-assassin.jpg);
+    background-size: 100% 100%;
+}
+
+.clicked.neutral, .spy.neutral {
+    transform: rotateY(180deg);
+    background-image: url(./img/codenames-bystander.jpg);
+    background-size: 100% 100%;
+}
+
 .cardWordWrapper {
-    background: pink;
     display: flex;
     flex-flow: row wrap;
-    max-width: 90%;
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 .cardWord {
     flex: 1 100%;
-    max-width: 90%;
-    border: 1px red;
-    background-color: blue;
-    color: white;
+    max-width: 100%;
 }
 
 .one {
