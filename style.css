@@ -179,7 +179,7 @@ div#board.wrapper {
 .cardWordWrapper {
     display: flex;
     flex-flow: row wrap;
-    min-width: 50px;
+    /*! min-width: 50px; */
     /*! min-height: 50px; */
     overflow-wrap: break-word;
 }
@@ -192,6 +192,7 @@ div#board.wrapper {
     align-items: center;
     min-height: 50px;
     flex-flow: row wrap;
+    font-size: 3vw;
 }
 
 .one {
