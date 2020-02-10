@@ -37,7 +37,6 @@ body {
 
 /* Main (Game) Style Spacing */
 main {
-    margin: ;
     display: grid;
     /* unsure if these next 3 do anything */
     direction: column;
@@ -45,21 +44,15 @@ main {
     justify-content: space-around;
 }
 
-
-
-
-
-
-/* controlsWrapper is a grid */
+/* Grid: controlsWrapper and modeWrapper */
 .controlsWrapper,
 .modeWrapper {
     display: grid;
     direction: row;
-    /* border: 2px solid  orange; */
     padding: .25em;
 }
 
-/* Grid: Score Left, Restart Right */
+/* Grid: controls (Score Left, Restart Right) */
 .controls {
     display: grid;
     grid-template-areas: "score restart";
@@ -77,9 +70,9 @@ div.scoreElement,
 div.restartWrapper {
     display: grid;
     direction: column;
-    /* border: 2px solid green; */
     align-items: center;
 }
+
 h3 #team1Score, 
 h3 #team2Score {
     max-height: 5px;
@@ -92,7 +85,7 @@ button {
     max-height: 100%;
     min-width: auto;
     /*! font-size: 8vw; */
-    height: 5vw;
+    height: 3vw;
 }
 .modeWrapper {
     display: grid;
@@ -201,7 +194,7 @@ div#board.wrapper {
     align-items: center;
     min-height: 50px;
     flex-flow: row wrap;
-    font-size: 2vw;
+    font-size: 1vw;
     overflow-wrap: break-word;
     color: rgb(184, 137, 76);
 }
