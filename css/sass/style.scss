@@ -1,0 +1,178 @@
+@import './codenames.scss';
+
+$header-font-family: $codenames-header-font-family;
+$card-font-family: $codenames-font-family;
+
+$body-background-color: $codenames-body-background-color;
+$header-color: $codenames-header-color;
+$grid-row-background-color: $codenames-grid-row-background-color;
+$card-background-color: $codenames-card-background-color;
+$card-word-color: $codenames-card-color;
+$card-border-color: $codenames-card-color;
+
+$card-background-image-red-clicked: $codenames-image-agent-red;
+$card-background-image-blue-clicked: $codenames-image-agent-blue;
+$card-background-image-assassin-clicked: $codenames-image-assassin;
+$card-background-image-neutral-clicked: $codenames-image-bystander;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $body-background-color;
+    margin: 0 auto;
+    width: 90%;
+    padding: 1em;
+    height: 90%;
+}
+
+header {
+    h1 {
+        font-family: $header-font-family;
+        text-align: center;
+        color: $header-color;
+        font-size: 8vw;
+    }
+}
+
+main {
+    display: grid;
+    justify-content: space-around;
+    button {
+        max-height: 100%;
+        min-width: auto;
+    }
+}
+
+.controlsWrapper,
+.modeWrapper {
+    display: grid;
+    direction: row;
+    padding: .25em;
+    .controls {
+        display: grid;
+        grid-template-areas: "score restart";
+        align-items: space-between;
+        .scoreWrapper {
+            grid-area: "score";
+        }
+        .restartWrapper {
+            grid-area: "restart";
+            display: grid;
+            direction: column;
+            align-items: center;
+            justify-content: right;
+        }
+        .scoreElement {
+            display: grid;
+            direction: column;
+            align-items: center;
+            #team1Score, 
+            #team2Score {
+                max-height: 5px;
+                min-width: 20px;
+            }
+        }
+    }
+}
+
+.modeWrapper {
+    grid-template-areas: "player spymaster";
+    align-items: space-between;
+    justify-content: center;
+    .mode {
+        justify-content: center;
+        align-items: center;
+        #player {
+            grid-area: "player";
+        }
+        #spymaster {
+            grid-area: "spymaster";
+        }
+    }
+}
+
+#board.wrapper {
+    display: grid;
+    max-width: 100%;
+    margin: .25em auto;
+    .one,
+    .two,
+    .three,
+    .four,
+    .five {
+        display: grid;
+        grid-gap: .5em;
+        grid-template-columns: repeat(5, minmax(1em, 200px));
+        height: 5em;
+        max-width: minmax(50px, auto);
+        margin: .25em auto;
+        background-color: $grid-row-background-color;
+    }
+    .one {
+        grid-row: 1;
+    }
+    .two {
+        grid-row: 2;
+    }
+    .three {
+        grid-row: 3;
+    }
+    .four {
+        grid-row: 4;
+    }
+    .five {
+        grid-row: 5;
+    }
+    .card {
+        color: $card-word-color;
+        font-weight: 400;
+        font-family: $card-font-family;
+        justify-content: center;
+        display: flex;
+        border-radius: 5px;
+        background-color: $card-background-color;
+        background-size: cover;
+        .cardWordWrapper {
+            max-width: minmax(50px, auto);
+            margin: .25em auto;
+            display: flex;
+            flex-flow: row wrap;
+            overflow-wrap: break-word;
+            .cardWord {
+                display: flex;
+                flex: 1 auto;
+                max-width: 100%;
+                justify-content: center;
+                align-items: center;
+                min-height: 50px;
+                flex-flow: row wrap;
+                font-size: 1vw;
+                overflow-wrap: break-word;
+                color: $card-word-color;
+            }
+        }
+        &.unclicked {
+            border: 2px solid $card-border-color;
+        }
+        &.clicked {
+            transform: rotateY(180deg);
+            background-size: 100% 100%;
+            &.red {
+                background-image: $card-background-image-red-clicked;
+            }
+            &.blue {
+                background-image: $card-background-image-blue-clicked;
+            }
+            &.assassin {
+                background-image: $card-background-image-assassin-clicked;
+            }
+            &.neutral {
+                background-image: $card-background-image-neutral-clicked;
+            }
+        }
+    }
+}
+
+

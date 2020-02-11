@@ -1,0 +1,19 @@
+/* Fonts */
+@font-face {
+    font-family: 'SkyFall Done';
+    src: url('../font/skyfall_done.ttf');
+}
+
+$codenames-font-family: 'SkyFall Done';
+$codenames-header-font-family: $codenames-font-family;
+
+$codenames-body-background-color: black;
+$codenames-header-color: white;
+$codenames-grid-row-background-color: transparent;
+$codenames-card-background-color: rgb(240, 201, 151);
+$codenames-card-color: rgb(184, 137, 76);
+
+$codenames-image-agent-red: url(../img/codenames-red_agent-man.jpg);
+$codenames-image-agent-blue: url(../img/codenames-blue_agent-woman.png);
+$codenames-image-assassin: url(../img/codenames-assassin.jpg);
+$codenames-image-bystander: url(../img/codenames-bystander.jpg);
