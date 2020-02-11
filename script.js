@@ -29,7 +29,7 @@ const startGame = (wordsListName) => {
     console.log(boardObj)
     colorCodeCards(coloredBoardArray)
 
-    const unclickedCards = document.getElementsByClassName('card')
+    let unclickedCards = document.getElementsByClassName('card')
     for (let i=0; i < unclickedCards.length; i++) {
         unclickedCards[i].classList.add('unclicked')
     }
@@ -54,7 +54,7 @@ const startGame = (wordsListName) => {
     initializeScore()
 
     mode = 'player'
-    addButtonThings()
+    // addButtonThings()
 }
 
 const initializeScore = () => {
@@ -72,7 +72,16 @@ const addClickListeners = () => {
         let clickCard = cardsToListen[i]
         clickCard.addEventListener('click', revealCard);
     }
-    console.log('Added event listeners')
+    console.log('Added card click listeners')
+
+    let buttonsToListen = document.querySelectorAll('.mode button')
+    console.log('Buttons to listen:', buttonsToListen)
+    for (let i = 0; i < buttonsToListen.length; i++) {
+        buttonsToListen[i].addEventListener('click', setMode)
+    }
+    console.log('Added mode button click listeners')
+
+    console.log('Added all event listeners')
 }
 
 function addButtonThings() {
@@ -605,15 +614,17 @@ function handleRevealedCard(revealTeam) {
     if (revealTeam == "assassin") {
         clickedCards[0] = 1
         alert("Oh no! You've revealed the assassin. Your team loses!")
-    } else {
-        if (revealTeam == "red") {
+    } 
+    else {
+        if (revealTeam == "neutral") {
+            score[0] += 1
+        }
+        else if (revealTeam == "red") {
             score[1] += 1
             document.getElementById("team1Score").textContent = `${parseInt(score[1])}`
         } else if (revealTeam == "blue") {
             score[2] += 1
             document.getElementById("team2Score").textContent = `${parseInt(score[2])}`
-        } else if (revealTeam == "neutral") {
-            score[0] += 1
         }
         checkWin()
     }
@@ -637,37 +648,62 @@ function checkWin() {
 
 function revealCard(e) {
     console.log("Clicked a card!")
-    e.target.classList.remove("unclicked")
-    e.target.classList.add('clicked')
-    unclickedCards = document.getElementsByClassName('unclicked')
-    e.target.removeEventListener('click', revealCard)
 
+    // Add 'reveal' to classlist of e.target element
     e.target.classList.add('reveal')
-    let cardWord = document.querySelector('.reveal .cardWord')
-    let word = cardWord ? cardWord : document.querySelector('.reveal.cardWord')
-    let revealTeam = boardObj[word.id]
-    console.log(`${word.id} = ${revealTeam}`)
-    word.textContent = ""
-    let addTeam = cardWord ? e.target : e.target.parentNode.parentNode
-    addTeam.classList.add(revealTeam)
-    addTeam.classList.add('clicked')
 
-    handleRevealedCard(revealTeam)
+    // Get classlist of e.target element (using '.reveal' query)
+    let revealedClasses = document.querySelector('.reveal').classList
 
+    // Remove the 'reveal' class from e.target
     e.target.classList.remove('reveal')
-    e.target.classList.add('revealed')
+    console.log('Target element classlist:', revealedClasses)
+
+    // Determine which element was clicked (div.card or div.cardWord)
+    let target = revealedClasses.contains('cardWord') ? e.target.parentNode.parentNode : e.target
+    console.log('Target .card element:', target)
+
+    // find div.cardWord element
+    let cardWord = target.querySelector('.cardWord')
+    console.log(`Target .cardWord element:`, cardWord)
+    
+    // find word text and reveal team
+    let word = cardWord.id
+    let revealTeam = boardObj[word]
+    console.log(`${word} = ${revealTeam}`)
+
+    // do not display word
+    cardWord.textContent = ""
+
+    // add revealed team to .card classes
+    target.classList.add(revealTeam)
+    // switch a .card class from 'unclicked' to 'clicked'
+    target.classList.remove("unclicked")
+    target.classList.add('clicked')
+    // remove the 'reveal' class from e.target
+    e.target.classList.remove('reveal')
+    // add the 'revealed' class to .card
+    target.classList.add('revealed')
+
+    // remove event listener from target
+    target.removeEventListener('click', revealCard)
+
+    // handle the gameplay for revealed team
+    handleRevealedCard(revealTeam)
 }
 
-function setMode(modeToSet) {
+function setMode(e) {
     // setting mode
-    mode = modeToSet
+    let mode = e.target.id
     console.log(`setting mode to ${mode}`)
-    cards = document.getElementsByClassName('card')
+    let cards = document.getElementsByClassName('card')
     for (let i=0; i < cards.length; i++) {
         if (mode == 'spymaster') {
-            cards[i].classList.add('spy')
+            cards[i].classList.remove('player')
+            cards[i].classList.add('spymaster')
         } else if (mode == 'player') {
             cards[i].classList.remove('spy')
+            cafds[i].classList.add('player')
         }
     }
 }
