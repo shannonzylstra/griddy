@@ -135,11 +135,25 @@ main {
         background-image: url(../img/codenames-assassin.jpg); }
       #board.wrapper .card.clicked.neutral {
         background-image: url(../img/codenames-bystander.jpg); }
+    #board.wrapper .card.spymaster.red {
+      border: 2px solid red; }
+      #board.wrapper .card.spymaster.red .cardWord {
+        color: red; }
+    #board.wrapper .card.spymaster.blue {
+      border: 2px solid blue; }
+      #board.wrapper .card.spymaster.blue .cardWord {
+        color: blue; }
+    #board.wrapper .card.spymaster.assassin {
+      border: 2px solid black; }
+      #board.wrapper .card.spymaster.assassin .cardWord {
+        color: black; }
+    #board.wrapper .card.spymaster.neutral {
+      border: 2px solid #b8894c; }
 
 .clicked {
   transform: rotateY(180deg);
   background-size: 100% 100%; }
-  .clicked.red {
+  .clicked .red {
     background-image: url(../img/codenames-red_agent-man.jpg); }
   .clicked .blue {
     background-image: url(../img/codenames-blue_agent-woman.png); }

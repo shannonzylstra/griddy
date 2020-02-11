@@ -172,6 +172,29 @@ main {
                 background-image: $card-background-image-neutral-clicked;
             }
         }
+        &.spymaster {
+            &.red {
+                border: 2px solid red;
+                .cardWord {
+                    color: red;
+                }
+            }
+            &.blue {
+                border: 2px solid blue;
+                .cardWord {
+                    color: blue;
+                }
+            }
+            &.assassin {
+                border: 2px solid black;
+                .cardWord {
+                    color: black;
+                }
+            }
+            &.neutral {
+                border: 2px solid $card-border-color;
+            }
+        }
     }
 }
 
