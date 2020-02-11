@@ -175,4 +175,19 @@ main {
     }
 }
 
-
+.clicked {
+    transform: rotateY(180deg);
+    background-size: 100% 100%;
+    .red {
+        background-image: $card-background-image-red-clicked;
+    }
+    .blue {
+        background-image: $card-background-image-blue-clicked;
+    }
+    .assassin {
+        background-image: $card-background-image-assassin-clicked;
+    }
+    .neutral {
+        background-image: $card-background-image-neutral-clicked;
+    }
+}

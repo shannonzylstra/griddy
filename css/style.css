@@ -135,3 +135,15 @@ main {
         background-image: url(../img/codenames-assassin.jpg); }
       #board.wrapper .card.clicked.neutral {
         background-image: url(../img/codenames-bystander.jpg); }
+
+.clicked {
+  transform: rotateY(180deg);
+  background-size: 100% 100%; }
+  .clicked.red {
+    background-image: url(../img/codenames-red_agent-man.jpg); }
+  .clicked .blue {
+    background-image: url(../img/codenames-blue_agent-woman.png); }
+  .clicked .assassin {
+    background-image: url(../img/codenames-assassin.jpg); }
+  .clicked .neutral {
+    background-image: url(../img/codenames-bystander.jpg); }

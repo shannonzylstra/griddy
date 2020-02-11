@@ -643,12 +643,14 @@ function revealCard(e) {
     e.target.removeEventListener('click', revealCard)
 
     e.target.classList.add('reveal')
-    let word = document.querySelector('.reveal>div>div')
-    word.textContent = ""
-    console.log(word.id)
+    let cardWord = document.querySelector('.reveal .cardWord')
+    let word = cardWord ? cardWord : document.querySelector('.reveal.cardWord')
     let revealTeam = boardObj[word.id]
     console.log(`${word.id} = ${revealTeam}`)
-    e.target.classList.add(revealTeam)
+    word.textContent = ""
+    let addTeam = cardWord ? e.target : e.target.parentNode.parentNode
+    addTeam.classList.add(revealTeam)
+    addTeam.classList.add('clicked')
 
     handleRevealedCard(revealTeam)
 
