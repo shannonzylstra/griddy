@@ -7,7 +7,7 @@
   box-sizing: border-box; }
 
 body {
-  background-color: black;
+  background-color: white;
   margin: 0 auto;
   width: 90%;
   padding: 1em;
@@ -16,7 +16,7 @@ body {
 header h1 {
   font-family: "SkyFall Done";
   text-align: center;
-  color: white;
+  color: black;
   font-size: 8vw; }
 
 main {
@@ -135,23 +135,32 @@ main {
         background-image: url(../img/codenames-assassin.jpg); }
       #board.wrapper .card.clicked.neutral {
         background-image: url(../img/codenames-bystander.jpg); }
+    #board.wrapper .card.spymaster.red, #board.wrapper .card.spymaster.blue, #board.wrapper .card.spymaster.assassin {
+      border: 0px; }
     #board.wrapper .card.spymaster.red {
       border: 2px solid red;
-      background-color: #f79393; }
+      background-color: rgba(252, 168, 168, 0.7); }
       #board.wrapper .card.spymaster.red .cardWord {
         color: red; }
+      #board.wrapper .card.spymaster.red.revealed {
+        background: rgba(252, 168, 168, 0.7); }
     #board.wrapper .card.spymaster.blue {
       border: 2px solid blue;
-      background-color: #a3a3f1; }
+      background-color: rgba(167, 212, 243, 0.7); }
       #board.wrapper .card.spymaster.blue .cardWord {
         color: blue; }
+      #board.wrapper .card.spymaster.blue.revealed {
+        background: rgba(167, 212, 243, 0.7); }
     #board.wrapper .card.spymaster.assassin {
-      border: 2px solid white;
-      background-color: black; }
+      background: black; }
       #board.wrapper .card.spymaster.assassin .cardWord {
         color: white; }
     #board.wrapper .card.spymaster.neutral {
-      border: 2px solid #b8894c; }
+      border: 0px solid #b8894c; }
+      #board.wrapper .card.spymaster.neutral.revealed {
+        background: #f0c997; }
+    #board.wrapper .card.spymaster.revealed {
+      border: 0px; }
 
 .clicked {
   transform: rotateY(180deg);

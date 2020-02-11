@@ -173,29 +173,45 @@ main {
             }
         }
         &.spymaster {
+            &.red,
+            &.blue,
+            &.assassin {
+                border: 0px;
+            }
             &.red {
                 border: 2px solid red;
-                background-color: rgb(247, 147, 147);
+                background-color: rgba(252, 168, 168, 0.7);
                 .cardWord {
                     color: red;
+                }
+                &.revealed {
+                    background: rgba(252, 168, 168, 0.7);
                 }
             }
             &.blue {
                 border: 2px solid blue;
-                background-color: rgb(163, 163, 241);
+                background-color: rgba(167, 212, 243, 0.7);
                 .cardWord {
                     color: blue;
                 }
+                &.revealed {
+                    background: rgba(167, 212, 243, 0.7);
+                }
             }
             &.assassin {
-                border: 2px solid white;
-                background-color: black;
+                background: black;
                 .cardWord {
                     color: white;
                 }
             }
             &.neutral {
-                border: 2px solid $card-border-color;
+                border: 0px solid $card-border-color;
+                &.revealed {
+                    background: $card-background-color;
+                }
+            }
+            &.revealed {
+                border: 0px;
             }
         }
     }
