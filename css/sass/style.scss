@@ -148,7 +148,7 @@ main {
                 align-items: center;
                 min-height: 50px;
                 flex-flow: row wrap;
-                font-size: 1vw;
+                font-size: 1.5vw;
                 overflow-wrap: break-word;
                 color: $card-word-color;
             }
@@ -175,20 +175,23 @@ main {
         &.spymaster {
             &.red {
                 border: 2px solid red;
+                background-color: rgb(247, 147, 147);
                 .cardWord {
                     color: red;
                 }
             }
             &.blue {
                 border: 2px solid blue;
+                background-color: rgb(163, 163, 241);
                 .cardWord {
                     color: blue;
                 }
             }
             &.assassin {
-                border: 2px solid black;
+                border: 2px solid white;
+                background-color: black;
                 .cardWord {
-                    color: black;
+                    color: white;
                 }
             }
             &.neutral {

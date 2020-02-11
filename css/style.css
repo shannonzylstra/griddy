@@ -119,7 +119,7 @@ main {
         align-items: center;
         min-height: 50px;
         flex-flow: row wrap;
-        font-size: 1vw;
+        font-size: 1.5vw;
         overflow-wrap: break-word;
         color: #b8894c; }
     #board.wrapper .card.unclicked {
@@ -136,17 +136,20 @@ main {
       #board.wrapper .card.clicked.neutral {
         background-image: url(../img/codenames-bystander.jpg); }
     #board.wrapper .card.spymaster.red {
-      border: 2px solid red; }
+      border: 2px solid red;
+      background-color: #f79393; }
       #board.wrapper .card.spymaster.red .cardWord {
         color: red; }
     #board.wrapper .card.spymaster.blue {
-      border: 2px solid blue; }
+      border: 2px solid blue;
+      background-color: #a3a3f1; }
       #board.wrapper .card.spymaster.blue .cardWord {
         color: blue; }
     #board.wrapper .card.spymaster.assassin {
-      border: 2px solid black; }
+      border: 2px solid white;
+      background-color: black; }
       #board.wrapper .card.spymaster.assassin .cardWord {
-        color: black; }
+        color: white; }
     #board.wrapper .card.spymaster.neutral {
       border: 2px solid #b8894c; }
 

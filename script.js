@@ -702,8 +702,8 @@ function setMode(e) {
             cards[i].classList.remove('player')
             cards[i].classList.add('spymaster')
         } else if (mode == 'player') {
-            cards[i].classList.remove('spy')
-            cafds[i].classList.add('player')
+            cards[i].classList.remove('spymaster')
+            cards[i].classList.add('player')
         }
     }
 }
