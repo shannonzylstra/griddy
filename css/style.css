@@ -2,7 +2,7 @@
 /* @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap'); */
 @font-face {
     font-family: 'SkyFall Done';
-    src: url('./font/skyfall_done.ttf');
+    src: url('../font/skyfall_done.ttf');
 }
 
 /* Reset Font/Box-Sizing */
@@ -155,14 +155,14 @@ div#board.wrapper {
 
 .clicked.red, .clicked.red.spy {
     transform: rotateY(180deg);
-    background-image: url(./img/codenames-red_agent-man.jpg);
+    background-image: url(../img/codenames-red_agent-man.jpg);
     background-size: 100% 100%;
     /* border-color: red; */
 }
 
 .clicked.blue, .clicked.spy.blue {
     transform: rotateY(180deg);
-    background-image: url(./img/codenames-blue_agent-woman.png);
+    background-image: url(../img/codenames-blue_agent-woman.png);
     background-size: 100% 100%;
     border-color: blue;
 }
@@ -170,13 +170,13 @@ div#board.wrapper {
 .clicked.assassin, .clicked.spy.assassin {
     transform: rotateY(180deg);
     background: black;
-    background-image: url(./img/codenames-assassin.jpg);
+    background-image: url(../img/codenames-assassin.jpg);
     background-size: 100% 100%;
 }
 
 .clicked.neutral, .clicked.spy.neutral {
     transform: rotateY(180deg);
-    background-image: url(./img/codenames-bystander.jpg);
+    background-image: url(../img/codenames-bystander.jpg);
     background-size: 100% 100%;
 }
 
