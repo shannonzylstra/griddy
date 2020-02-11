@@ -5,13 +5,15 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "browser-sync start --server . --files ."
+    "start": "browser-sync start --server . --files .",
+    "sass": "node-sass css/sass/ -o css/"
   },
   "keywords": [],
   "author": "Shannon Zylstra",
   "license": "MIT",
   "dependencies": {
-    "browser-sync": "^2.26.7"
+    "browser-sync": "^2.26.7",
+    "node-sass": "^4.13.1"
   },
   "devDependencies": {}
 }
