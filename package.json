@@ -11,7 +11,7 @@
   "author": "Shannon Zylstra",
   "license": "MIT",
   "dependencies": {
-    "browser-sync": "^2.26.7"
+    "browser-sync": "^2.27.10"
   },
   "devDependencies": {}
 }
